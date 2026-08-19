@@ -1,0 +1,17 @@
+.env
+hide.env
+
+__pycache__/
+*.pyc
+
+
+# Database
+*.db
+
+# Environment
+hide.env
+.env
+
+# OS
+.DS_Store
+Thumbs.db
