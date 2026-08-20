@@ -1,3 +1,7 @@
+import os
+from route.safe_path import resolve_safe_path
+
+BUILD_DIR = os.path.abspath("generated_sites")
 async def create_file(project_name, path, content):
     # sandbox: everything lives under generated_sites/<project_name>/
     safe_project = "".join(c for c in project_name if c.isalnum() or c in "-_") or "untitled"

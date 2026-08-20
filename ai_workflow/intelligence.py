@@ -8,6 +8,7 @@ from route.prompt import prompts
 from tools.create import create_file
 from tools.read import read_file
 from tools.edit import edit_file
+import json
 from tools.tool import tool
 from route.trim import trim_history
 import os
@@ -55,9 +56,12 @@ async def intelligence():
 					)
 
 				ai_reply = response.choices[0].message
+				print("FINISH REASON:", response.choices[0].finish_reason)
+				print("RAW CONTENT:", repr(ai_reply.content))
+				print("RAW TOOL CALLS:", ai_reply.tool_calls)
 
 				if not ai_reply.tool_calls:
-					ai_reply = ai_reply.content or "BUILD COMPLETE"
+					ai_reply = ai_reply.content or "ERROR CREATING FILE"
 					messages_ai.append({"role": "assistant", "content": ai_reply})
 					print("AI:", ai_reply)
 					break

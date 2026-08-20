@@ -1,110 +1,292 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>OwenAI - Tech Solutions</title>
-  <script src="https://cdn.tailwindcss.com"></script>
-  <script src="script.js" defer></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>OwenAI - AI Engineering & Education</title>
+    <meta name="description" content="OwenAI: AI Engineering + Education platform by Owen, an AI Engineer & Full-Stack Developer. Building Autonomous AI Agents and AI-powered SaaS, and teaching online courses.">
+    <meta name="keywords" content="AI Engineering, AI Agents, Full-Stack AI, AI for Founders, AI Consulting, SaaS Development, Online Courses, OwenAI">
+    <link rel="icon" href="favicon.ico">
+    <link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet">
+    <style>
+        :root {
+            --color-purple: #7C3AED;
+            --color-cyan: #06B6D4;
+            --color-black: #0A0A0A; /* A very dark black */
+            --color-gray-light: #E0E0E0;
+            --color-gray-dark: #1A1A1A;
+        }
+        body {
+            font-family: 'Inter', sans-serif; /* Modern, clean font */
+            background-color: var(--color-black);
+            color: var(--color-gray-light);
+        }
+        .text-gradient-purple-cyan {
+            background: linear-gradient_to_right, var(--color-purple), var(--color-cyan));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .btn-primary {
+            background: linear-gradient_to_right, var(--color-purple), var(--color-cyan));
+            transition: all 0.3s ease;
+        }
+        .btn-primary:hover {
+            opacity: 0.9;
+            transform: translateY(-2px);
+        }
+        .btn-secondary {
+            border: 2px solid var(--color-purple);
+            color: var(--color-purple);
+            transition: all 0.3s ease;
+        }
+        .btn-secondary:hover {
+            background-color: var(--color-purple);
+            color: var(--color-gray-light);
+            transform: translateY(-2px);
+        }
+        .card-gradient-border {
+            position: relative;
+            background-color: var(--color-gray-dark);
+            border-radius: 0.75rem; /* Tailwind 'rounded-xl' */
+            overflow: hidden;
+        }
+        .card-gradient-border::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            border-radius: 0.75rem;
+            padding: 2px; /* Border thickness */
+            background: linear-gradient_to_right, var(--color-purple), var(--color-cyan));
+            -webkit-mask: linear-gradient_to_right, #fff 0 0) content-box, linear-gradient_to_right, #fff 0 0);
+            -webkit-mask-composite: xor;
+            mask-composite: exclude;
+            z-index: 0;
+        }
+        .card-gradient-border > * {
+            position: relative;
+            z-index: 1;
+        }
+        @keyframes pulse-glow {
+            0% { box-shadow: 0 0 5px var(--color-purple); }
+            50% { box-shadow: 0 0 20px var(--color-cyan), 0 0 30px var(--color-purple); }
+            100% { box-shadow: 0 0 5px var(--color-purple); }
+        }
+        .animate-pulse-glow {
+            animation: pulse-glow 3s infinite ease-in-out;
+        }
+    </style>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 </head>
-<body class="font-sans text-gray-900">
-  <!-- Header -->
-  <header class="bg-white shadow-md sticky top-0 z-50">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="flex justify-between items-center py-4">
-        <a href="#" class="text-2xl font-bold text-indigo-600">OwenAI</a>
-        <nav id="nav-menu" class="hidden md:flex space-x-8">
-          <a href="#hero" class="text-gray-700 hover:text-indigo-600">Home</a>
-          <a href="#about" class="text-gray-700 hover:text-indigo-600">About</a>
-          <a href="#services" class="text-gray-700 hover:text-indigo-600">Services</a>
-          <a href="#contact" class="text-gray-700 hover:text-indigo-600">Contact</a>
+<body class="antialiased">
+
+    <!-- Header -->
+    <header class="bg-black text-gray-light sticky top-0 z-50 shadow-lg">
+        <nav class="container mx-auto px-6 py-4 flex items-center justify-between">
+            <a href="#" class="text-2xl font-bold text-gradient-purple-cyan">OwenAI</a>
+            <div class="hidden md:flex space-x-8">
+                <a href="#home" class="hover:text-purple-400 transition duration-300">Home</a>
+                <a href="#services" class="hover:text-purple-400 transition duration-300">Services</a>
+                <a href="#courses" class="hover:text-purple-400 transition duration-300">Courses</a>
+                <a href="#portfolio" class="hover:text-purple-400 transition duration-300">Portfolio</a>
+                <a href="#about" class="hover:text-purple-400 transition duration-300">About</a>
+                <a href="#contact" class="hover:text-purple-400 transition duration-300">Contact</a>
+            </div>
+            <div class="md:hidden">
+                <button id="mobile-menu-button" class="text-gray-light focus:outline-none">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path></svg>
+                </button>
+            </div>
         </nav>
-        <button id="nav-toggle" class="md:hidden focus:outline-none">
-          <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path></svg>
-        </button>
-      </div>
-    </div>
-  </header>
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="md:hidden hidden bg-gray-dark py-4">
+            <a href="#home" class="block px-6 py-2 text-gray-light hover:bg-gray-700">Home</a>
+            <a href="#services" class="block px-6 py-2 text-gray-light hover:bg-gray-700">Services</a>
+            <a href="#courses" class="block px-6 py-2 text-gray-light hover:bg-gray-700">Courses</a>
+            <a href="#portfolio" class="block px-6 py-2 text-gray-light hover:bg-gray-700">Portfolio</a>
+            <a href="#about" class="block px-6 py-2 text-gray-light hover:bg-gray-700">About</a>
+            <a href="#contact" class="block px-6 py-2 text-gray-light hover:bg-gray-700">Contact</a>
+        </div>
+    </header>
 
-  <!-- Hero Section -->
-  <section id="hero" class="bg-indigo-600 text-white py-20">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-      <h1 class="text-4xl sm:text-5xl font-bold mb-4">OwenAI - Innovative Tech Solutions</h1>
-      <p class="text-lg sm:text-xl mb-8">We deliver cutting‑edge AI and software solutions tailored to your business needs.</p>
-      <a href="#services" class="inline-block bg-white text-indigo-600 font-semibold px-8 py-3 rounded hover:bg-gray-100 transition">Explore Services</a>
-    </div>
-  </section>
+    <main>
+        <!-- Hero Section -->
+        <section id="home" class="relative h-screen flex items-center justify-center text-center bg-cover bg-center" style="background-image: url('https://images.unsplash.com/photo-1516110833957-e1bd60f3877c?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1920&q=80');">
+            <div class="absolute inset-0 bg-black opacity-80"></div>
+            <div class="relative z-10 p-8 max-w-4xl mx-auto">
+                <h1 class="text-5xl md:text-7xl font-extrabold leading-tight mb-4 text-gradient-purple-cyan">
+                    Pioneering the Future of AI
+                </h1>
+                <p class="text-xl md:text-2xl text-gray-300 mb-8">
+                    OwenAI: AI Engineering + Education platform by Owen, an AI Engineer & Full-Stack Developer.
+                    I build Autonomous AI Agents and AI-powered SaaS for businesses, and teach online courses.
+                </p>
+                <div class="flex flex-col sm:flex-row justify-center space-y-4 sm:space-y-0 sm:space-x-6">
+                    <a href="#contact" class="btn-primary px-8 py-4 rounded-full text-lg font-semibold text-white shadow-lg">
+                        Book a Call
+                    </a>
+                    <a href="#courses" class="btn-secondary px-8 py-4 rounded-full text-lg font-semibold">
+                        View Courses
+                    </a>
+                </div>
+            </div>
+        </section>
 
-  <!-- About Section -->
-  <section id="about" class="py-16 bg-gray-50">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <h2 class="text-3xl font-bold text-center mb-12">About OwenAI</h2>
-      <div class="grid md:grid-cols-2 gap-8 items-center">
-        <div>
-          <p class="text-lg leading-relaxed">OwenAI is a forward‑thinking technology firm that specializes in AI, machine learning, cloud computing, and custom software development. Our mission is to empower businesses through intelligent solutions that drive growth, efficiency, and innovation.</p>
-        </div>
-        <div>
-          <img src="https://images.unsplash.com/photo-1504384308090-c894fdcc538d?auto=format&fit=crop&w=800&q=80" alt="Technology" class="rounded shadow-md w-full" />
-        </div>
-      </div>
-    </div>
-  </section>
+        <!-- Services Section -->
+        <section id="services" class="py-20 bg-gray-dark">
+            <div class="container mx-auto px-6 text-center">
+                <h2 class="text-4xl font-bold mb-12 text-gradient-purple-cyan">Our Services</h2>
+                <div class="grid md:grid-cols-3 gap-10">
+                    <div class="card-gradient-border p-8 rounded-xl shadow-lg hover:shadow-cyan-500/50 transition-shadow duration-300">
+                        <h3 class="text-2xl font-semibold mb-4 text-purple-400">AI Agent Development</h3>
+                        <p class="text-gray-300">Crafting intelligent, autonomous AI agents tailored to automate complex tasks and drive innovation for your business.</p>
+                    </div>
+                    <div class="card-gradient-border p-8 rounded-xl shadow-lg hover:shadow-cyan-500/50 transition-shadow duration-300">
+                        <h3 class="text-2xl font-semibold mb-4 text-purple-400">Full-Stack AI Development</h3>
+                        <p class="text-gray-300">Building robust, AI-powered SaaS solutions from front-end to back-end, delivering seamless user experiences and powerful AI capabilities.</p>
+                    </div>
+                    <div class="card-gradient-border p-8 rounded-xl shadow-lg hover:shadow-cyan-500/50 transition-shadow duration-300">
+                        <h3 class="text-2xl font-semibold mb-4 text-purple-400">AI Consulting</h3>
+                        <p class="text-gray-300">Strategic guidance and expert insights to help businesses integrate AI effectively, optimize operations, and achieve their technological goals.</p>
+                    </div>
+                </div>
+                <a href="#portfolio" class="btn-primary mt-12 inline-block px-8 py-4 rounded-full text-lg font-semibold text-white shadow-lg">
+                    See Portfolio
+                </a>
+            </div>
+        </section>
 
-  <!-- Services Section -->
-  <section id="services" class="py-16">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <h2 class="text-3xl font-bold text-center mb-12">Our Services</h2>
-      <div class="grid md:grid-cols-3 gap-8">
-        <div class="bg-white rounded shadow p-6 text-center">
-          <svg class="w-12 h-12 mx-auto text-indigo-600 mb-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c-1.1 0-2 .9-2 2v6m0 0l-2-2m2 2l2-2"></path></svg>
-          <h3 class="text-xl font-semibold mb-2">AI Development</h3>
-          <p class="text-gray-600">Custom AI models, NLP, computer vision, and predictive analytics.</p>
-        </div>
-        <div class="bg-white rounded shadow p-6 text-center">
-          <svg class="w-12 h-12 mx-auto text-indigo-600 mb-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v8m-4-4h8"></path></svg>
-          <h3 class="text-xl font-semibold mb-2">Cloud Solutions</h3>
-          <p class="text-gray-600">AWS, Azure, GCP deployments, migration, and managed services.</p>
-        </div>
-        <div class="bg-white rounded shadow p-6 text-center">
-          <svg class="w-12 h-12 mx-auto text-indigo-600 mb-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m-6-8h6m-6-4h6"></path></svg>
-          <h3 class="text-xl font-semibold mb-2">Software Development</h3>
-          <p class="text-gray-600">Full‑stack web, mobile, and desktop applications.</p>
-        </div>
-      </div>
-    </div>
-  </section>
+        <!-- Courses Section -->
+        <section id="courses" class="py-20 bg-black">
+            <div class="container mx-auto px-6 text-center">
+                <h2 class="text-4xl font-bold mb-12 text-gradient-purple-cyan">Our Courses</h2>
+                <div class="grid md:grid-cols-2 gap-10">
+                    <div class="card-gradient-border p-8 rounded-xl shadow-lg hover:shadow-purple-500/50 transition-shadow duration-300">
+                        <h3 class="text-2xl font-semibold mb-4 text-cyan-400">Autonomous AI Agents</h3>
+                        <p class="text-gray-300 mb-6">Master the principles and practices of building self-sufficient AI agents that can reason, plan, and execute tasks autonomously.</p>
+                        <a href="#" class="btn-secondary px-6 py-3 rounded-full text-md font-semibold">Learn More</a>
+                    </div>
+                    <div class="card-gradient-border p-8 rounded-xl shadow-lg hover:shadow-purple-500/50 transition-shadow duration-300">
+                        <h3 class="text-2xl font-semibold mb-4 text-cyan-400">AI SaaS Bootcamp</h3>
+                        <p class="text-gray-300 mb-6">A comprehensive bootcamp for developers and founders to build, deploy, and scale AI-powered Software as a Service (SaaS) products.</p>
+                        <a href="#" class="btn-secondary px-6 py-3 rounded-full text-md font-semibold">Learn More</a>
+                    </div>
+                    <div class="card-gradient-border p-8 rounded-xl shadow-lg hover:shadow-purple-500/50 transition-shadow duration-300 md:col-span-2">
+                        <h3 class="text-2xl font-semibold mb-4 text-cyan-400">AI for Founders</h3>
+                        <p class="text-gray-300 mb-6">Essential AI knowledge and strategies for startup founders to leverage artificial intelligence for product innovation and business growth.</p>
+                        <a href="#" class="btn-secondary px-6 py-3 rounded-full text-md font-semibold">Learn More</a>
+                    </div>
+                </div>
+                <a href="#contact" class="btn-primary mt-12 inline-block px-8 py-4 rounded-full text-lg font-semibold text-white shadow-lg">
+                    Book a Call
+                </a>
+            </div>
+        </section>
 
-  <!-- Contact Section -->
-  <section id="contact" class="py-16 bg-indigo-600 text-white">
-    <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
-      <h2 class="text-3xl font-bold text-center mb-8">Get in Touch</h2>
-      <form class="bg-white text-gray-900 rounded shadow p-8" action="#" method="post">
-        <div class="grid gap-6">
-          <div>
-            <label for="name" class="block font-medium mb-1">Name</label>
-            <input type="text" id="name" name="name" class="w-full border rounded px-3 py-2" required />
-          </div>
-          <div>
-            <label for="email" class="block font-medium mb-1">Email</label>
-            <input type="email" id="email" name="email" class="w-full border rounded px-3 py-2" required />
-          </div>
-          <div>
-            <label for="message" class="block font-medium mb-1">Message</label>
-            <textarea id="message" name="message" rows="4" class="w-full border rounded px-3 py-2" required></textarea>
-          </div>
-          <div class="text-center">
-            <button type="submit" class="bg-indigo-600 text-white font-semibold px-6 py-3 rounded hover:bg-indigo-700 transition">Send Message</button>
-          </div>
-        </div>
-      </form>
-    </div>
-  </section>
+        <!-- Portfolio Section -->
+        <section id="portfolio" class="py-20 bg-gray-dark">
+            <div class="container mx-auto px-6 text-center">
+                <h2 class="text-4xl font-bold mb-12 text-gradient-purple-cyan">Our Portfolio</h2>
+                <div class="grid md:grid-cols-3 gap-10">
+                    <div class="card-gradient-border p-6 rounded-xl shadow-lg hover:shadow-cyan-500/50 transition-shadow duration-300">
+                        <img src="https://via.placeholder.com/400x250/0F0F0F/06B6D4?text=AI+Agent+Project" alt="AI Agent Project" class="rounded-lg mb-4">
+                        <h3 class="text-xl font-semibold mb-2 text-purple-400">Automated Data Analyst Agent</h3>
+                        <p class="text-gray-400 text-sm">An autonomous agent designed to analyze complex datasets, generate insights, and create reports without human intervention.</p>
+                    </div>
+                    <div class="card-gradient-border p-6 rounded-xl shadow-lg hover:shadow-cyan-500/50 transition-shadow duration-300">
+                        <img src="https://via.placeholder.com/400x250/0F0F0F/7C3AED?text=AI+SaaS+Platform" alt="AI SaaS Platform" class="rounded-lg mb-4">
+                        <h3 class="text-xl font-semibold mb-2 text-purple-400">AI-Powered Customer Support Platform</h3>
+                        <p class="text-gray-400 text-sm">A full-stack SaaS solution leveraging NLP and machine learning to provide intelligent customer support and automate ticket resolution.</p>
+                    </div>
+                    <div class="card-gradient-border p-6 rounded-xl shadow-lg hover:shadow-cyan-500/50 transition-shadow duration-300">
+                        <img src="https://via.placeholder.com/400x250/0F0F0F/06B6D4?text=Predictive+AI+System" alt="Predictive AI System" class="rounded-lg mb-4">
+                        <h3 class="text-xl font-semibold mb-2 text-purple-400">Predictive Maintenance System</h3>
+                        <p class="text-gray-400 text-sm">An AI system that predicts equipment failures before they occur, optimizing maintenance schedules and reducing downtime for industrial clients.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
 
-  <!-- Footer -->
-  <footer class="bg-gray-800 text-gray-300 py-6">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-      <p>&copy; 2026 OwenAI. All rights reserved.</p>
-    </div>
-  </footer>
+        <!-- About Section -->
+        <section id="about" class="py-20 bg-black">
+            <div class="container mx-auto px-6 text-center max-w-3xl">
+                <h2 class="text-4xl font-bold mb-8 text-gradient-purple-cyan">About Owen</h2>
+                <p class="text-lg text-gray-300 leading-relaxed mb-6">
+                    Owen is a seasoned AI Engineer and Full-Stack Developer with a passion for building cutting-edge artificial intelligence solutions.
+                    With years of experience in both agentic AI and robust SaaS development, Owen brings a unique blend of theoretical knowledge and practical application to every project.
+                </p>
+                <p class="text-lg text-gray-300 leading-relaxed">
+                    Committed to pushing the boundaries of AI, Owen also dedicates time to educating the next generation of AI innovators and entrepreneurs through comprehensive online courses.
+                    His mission is to empower businesses and individuals to harness the transformative power of AI.
+                </p>
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section id="contact" class="py-20 bg-gray-dark">
+            <div class="container mx-auto px-6 text-center max-w-2xl">
+                <h2 class="text-4xl font-bold mb-12 text-gradient-purple-cyan">Get in Touch</h2>
+                <form class="space-y-6 text-left">
+                    <div>
+                        <label for="name" class="block text-gray-light text-sm font-bold mb-2">Name</label>
+                        <input type="text" id="name" name="name" class="shadow appearance-none border rounded w-full py-3 px-4 text-gray-700 leading-tight focus:outline-none focus:shadow-outline bg-gray-800 border-gray-700 text-gray-light" placeholder="Your Name">
+                    </div>
+                    <div>
+                        <label for="email" class="block text-gray-light text-sm font-bold mb-2">Email</label>
+                        <input type="email" id="email" name="email" class="shadow appearance-none border rounded w-full py-3 px-4 text-gray-700 leading-tight focus:outline-none focus:shadow-outline bg-gray-800 border-gray-700 text-gray-light" placeholder="your@example.com">
+                    </div>
+                    <div>
+                        <label for="message" class="block text-gray-light text-sm font-bold mb-2">Message</label>
+                        <textarea id="message" name="message" rows="6" class="shadow appearance-none border rounded w-full py-3 px-4 text-gray-700 leading-tight focus:outline-none focus:shadow-outline bg-gray-800 border-gray-700 text-gray-light" placeholder="How can OwenAI help you?"></textarea>
+                    </div>
+                    <div class="text-center">
+                        <button type="submit" class="btn-primary px-10 py-4 rounded-full text-lg font-semibold text-white shadow-lg">
+                            Send Message
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-black py-8 text-center text-gray-500 text-sm">
+        <div class="container mx-auto px-6">
+            <p>&copy; 2024 OwenAI. All rights reserved.</p>
+            <div class="mt-4 space-x-4">
+                <a href="#" class="hover:text-purple-400 transition duration-300">Privacy Policy</a>
+                <a href="#" class="hover:text-purple-400 transition duration-300">Terms of Service</a>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile menu toggle
+        const mobileMenuButton = document.getElementById('mobile-menu-button');
+        const mobileMenu = document.getElementById('mobile-menu');
+
+        mobileMenuButton.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+
+                // Close mobile menu after clicking a link
+                if (!mobileMenu.classList.contains('hidden')) {
+                    mobileMenu.classList.add('hidden');
+                }
+            });
+        });
+    </script>
 </body>
 </html>

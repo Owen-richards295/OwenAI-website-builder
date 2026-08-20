@@ -1,3 +1,7 @@
+import os
+from route.safe_path import resolve_safe_path
+
+BUILD_DIR = os.path.abspath("generated_sites")
 async def read_file(project_name, path):
 	full_path = resolve_safe_path(project_name, path)
 	if not os.path.exists(full_path):
