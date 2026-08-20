@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>EcoTrack – Sustainable Asset Management</title>
+  <meta name="description" content="EcoTrack helps businesses track carbon footprints, optimize resources, and report sustainability metrics with ease.">
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;800&display=swap" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    body {font-family: 'Manrope', sans-serif;}
+    /* Ensure focus outline visible */
+    :focus-visible {outline: 2px solid #F59E0B; outline-offset: 2px;}
+  </style>
+</head>
+<body class="bg-gray-50 text-gray-900">
+  <!-- Header -->
+  <header id="header" class="fixed w-full z-50 bg-white transition-all duration-300 py-4 px-6 flex items-center justify-between shadow-sm">
+    <a href="#" class="text-2xl font-extrabold text-blue-800">EcoTrack</a>
+    <nav class="hidden md:flex space-x-8">
+      <a href="#features" class="font-semibold hover:text-blue-600">Features</a>
+      <a href="#how" class="font-semibold hover:text-blue-600">How It Works</a>
+      <a href="#contact" class="font-semibold hover:text-blue-600">Contact</a>
+    </nav>
+    <button id="mobile-menu-btn" class="md:hidden flex items-center space-x-2 font-semibold text-blue-800" aria-label="Toggle menu">
+      <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" /></svg>
+      <span>Menu</span>
+    </button>
+    <nav id="mobile-menu" class="hidden md:hidden absolute top-full left-0 w-full bg-white shadow-md py-4 px-6 flex flex-col space-y-4">
+      <a href="#features" class="font-semibold hover:text-blue-600">Features</a>
+      <a href="#how" class="font-semibold hover:text-blue-600">How It Works</a>
+      <a href="#contact" class="font-semibold hover:text-blue-600">Contact</a>
+    </nav>
+  </header>
+
+  <!-- Main Content -->
+  <main class="pt-24">
+    <!-- Hero Section -->
+    <section id="hero" class="reveal opacity-0 translate-y-4 transition-all duration-700" style="background-color: #F9FAFB;">
+      <div class="max-w-7xl mx-auto px-6 py-16 grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
+        <div class="text-center md:text-left">
+          <h1 class="text-4xl md:text-5xl font-extrabold mb-4">Track. Optimize. Thrive.</h1>
+          <p class="text-lg mb-6">EcoTrack empowers companies to monitor their carbon footprint, reduce waste, and report sustainability metrics—all in one dashboard.</p>
+          <a href="#contact" class="inline-block bg-amber-500 text-white font-semibold py-3 px-6 rounded-md hover:bg-amber-600 transition-colors">Get Started</a>
+        </div>
+        <div class="flex justify-center md:justify-end">
+          <img src="https://images.unsplash.com/photo-1581091870620-5d3f4d3f3b5a?auto=format&fit=crop&w=600&q=80" alt="Sustainability dashboard mockup" class="rounded-md shadow-lg w-full max-w-md">
+        </div>
+      </div>
+    </section>
+
+    <!-- Features Section -->
+    <section id="features" class="reveal opacity-0 translate-y-4 transition-all duration-700 py-20">
+      <div class="max-w-7xl mx-auto px-6 text-center">
+        <h2 class="text-3xl font-extrabold mb-8">Core Features</h2>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+          <div class="bg-white rounded-lg shadow-md p-6 transition-transform transform hover:scale-105">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-12 w-12 mx-auto mb-4 text-blue-500" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 3h18v18H3V3z" /></svg>
+            <h3 class="text-xl font-semibold mb-2">Carbon Dashboard</h3>
+            <p>Real‑time data on emissions, energy use, and waste.</p>
+          </div>
+          <div class="bg-white rounded-lg shadow-md p-6 transition-transform transform hover:scale-105">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-12 w-12 mx-auto mb-4 text-blue-500" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4" /></svg>
+            <h3 class="text-xl font-semibold mb-2">Resource Optimizer</h3>
+            <p>AI‑driven recommendations to cut waste and save costs.</p>
+          </div>
+          <div class="bg-white rounded-lg shadow-md p-6 transition-transform transform hover:scale-105">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-12 w-12 mx-auto mb-4 text-blue-500" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 12h14M12 5l7 7-7 7" /></svg>
+            <h3 class="text-xl font-semibold mb-2">Reporting Suite</h3>
+            <p>Exportable reports for ESG, ISO, and internal audits.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- How It Works Section -->
+    <section id="how" class="reveal opacity-0 translate-y-4 transition-all duration-700 py-20 bg-white">
+      <div class="max-w-7xl mx-auto px-6 text-center">
+        <h2 class="text-3xl font-extrabold mb-12">How It Works</h2>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+          <div class="flex flex-col items-center">
+            <div class="w-16 h-16 rounded-full bg-blue-100 flex items-center justify-center mb-4 text-blue-600 text-2xl font-semibold">1</div>
+            <h3 class="text-xl font-semibold mb-2">Connect Data</h3>
+            <p>Integrate with your existing ERP, IoT, and cloud services.</p>
+          </div>
+          <div class="flex flex-col items-center">
+            <div class="w-16 h-16 rounded-full bg-blue-100 flex items-center justify-center mb-4 text-blue-600 text-2xl font-semibold">2</div>
+            <h3 class="text-xl font-semibold mb-2">Analyze & Optimize</h3>
+            <p>Our algorithms surface actionable insights.</p>
+          </div>
+          <div class="flex flex-col items-center">
+            <div class="w-16 h-16 rounded-full bg-blue-100 flex items-center justify-center mb-4 text-blue-600 text-2xl font-semibold">3</div>
+            <h3 class="text-xl font-semibold mb-2">Report & Share</h3>
+            <p>Generate compliant reports for stakeholders.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="reveal opacity-0 translate-y-4 transition-all duration-700 py-20 bg-gray-100">
+      <div class="max-w-3xl mx-auto px-6 text-center">
+        <h2 class="text-3xl font-extrabold mb-8">Let’s Talk</h2>
+        <p class="mb-6">Ready to reduce your footprint? Reach out and we’ll set up a demo.</p>
+        <a href="mailto:sales@ecotrack.com" class="inline-block bg-blue-800 text-white font-semibold py-3 px-6 rounded-md hover:bg-blue-900 transition-colors">Contact Sales</a>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer class="bg-white py-6">
+    <div class="max-w-7xl mx-auto px-6 text-center text-sm text-gray-600">
+      © 2026 EcoTrack. All rights reserved.
+    </div>
+  </footer>
+
+  <!-- JavaScript -->
+  <script>
+    // Sticky header logic
+    const header = document.getElementById('header');
+    window.addEventListener('scroll', () => {
+      if (window.scrollY > 50) {
+        header.classList.add('shadow-md', 'py-2');
+        header.classList.remove('py-4');
+      } else {
+        header.classList.remove('shadow-md', 'py-2');
+        header.classList.add('py-4');
+      }
+    });
+
+    // Mobile menu toggle
+    const mobileBtn = document.getElementById('mobile-menu-btn');
+    const mobileMenu = document.getElementById('mobile-menu');
+    mobileBtn.addEventListener('click', () => {
+      mobileMenu.classList.toggle('hidden');
+    });
+
+    // Scroll reveal
+    const revealElements = document.querySelectorAll('.reveal');
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('opacity-100', 'translate-y-0');
+          entry.target.classList.remove('opacity-0', 'translate-y-4');
+        }
+      });
+    }, { threshold: 0.1 });
+    revealElements.forEach(el => observer.observe(el));
+  </script>
+</body>
+</html>

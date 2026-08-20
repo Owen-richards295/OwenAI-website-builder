@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>TaskFlow – Team Productivity Made Simple</title>
+  <meta name="description" content="TaskFlow helps teams plan, track, and deliver projects faster with intuitive boards, real‑time collaboration, and powerful analytics.">
+  <meta name="keywords" content="productivity, project management, team collaboration, task tracking, SaaS">
+
+  <!-- Favicons -->
+  <link href="favicon.ico" rel="icon">
+
+  <!-- Google Fonts – Manrope 400, 600, 800 -->
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;800&display=swap" rel="stylesheet">
+
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            primary: '#1E3A8A', // deep blue
+            accent: '#F59E0B', // amber
+            background: '#F9FAFB',
+            surface: '#FFFFFF',
+            text: {
+              primary: '#111827',
+              secondary: '#6B7280'
+            }
+          },
+          fontFamily: {
+            sans: ['Manrope', 'sans-serif']
+          },
+          borderRadius: {
+            md: '0.5rem'
+          }
+        }
+      }
+    }
+  </script>
+
+  <style>
+    body { font-family: var(--font-sans); }
+    .scroll-reveal { opacity: 0; transform: translateY(1rem); }
+  </style>
+</head>
+<body class="bg-background text-text-primary font-sans">
+  <!-- Header -->
+  <header id="header" class="fixed w-full z-20 transition-all duration-300" style="background: var(--color-surface); padding: 1rem 2rem;">
+    <div class="max-w-7xl mx-auto flex items-center justify-between">
+      <a href="#" class="text-2xl font-extrabold text-primary">TaskFlow</a>
+      <nav class="hidden md:flex space-x-8">
+        <a href="#features" class="text-text-secondary hover:text-primary transition">Features</a>
+        <a href="#how-it-works" class="text-text-secondary hover:text-primary transition">How It Works</a>
+        <a href="#pricing" class="text-text-secondary hover:text-primary transition">Pricing</a>
+        <a href="#contact" class="text-text-secondary hover:text-primary transition">Contact</a>
+      </nav>
+      <button id="mobile-menu-btn" class="md:hidden text-text-secondary hover:text-primary focus:outline-none focus:ring-2 focus:ring-primary rounded-md" aria-label="Open menu">
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" /></svg>
+      </button>
+    </div>
+    <!-- Mobile menu overlay -->
+    <div id="mobile-menu" class="md:hidden absolute top-full left-0 w-full bg-surface shadow-md transform scale-95 opacity-0 transition-all duration-300" style="display:none;">
+      <nav class="flex flex-col space-y-4 p-4">
+        <a href="#features" class="text-text-secondary hover:text-primary transition">Features</a>
+        <a href="#how-it-works" class="text-text-secondary hover:text-primary transition">How It Works</a>
+        <a href="#pricing" class="text-text-secondary hover:text-primary transition">Pricing</a>
+        <a href="#contact" class="text-text-secondary hover:text-primary transition">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Hero Section -->
+  <section class="pt-24 pb-12" id="hero">
+    <div class="max-w-7xl mx-auto px-4 grid md:grid-cols-2 gap-8 items-center">
+      <div>
+        <h1 class="text-4xl font-extrabold text-primary mb-4">Collaborate. Track. Deliver.</h1>
+        <p class="text-text-secondary mb-6">TaskFlow gives teams a single source of truth for all projects, from planning to delivery. No more spreadsheets, no more email threads.</p>
+        <a href="#pricing" class="inline-block bg-primary text-white font-semibold py-3 px-6 rounded-md hover:bg-primary/80 transition">Get Started Free</a>
+      </div>
+      <div>
+        <img src="https://images.unsplash.com/photo-1584697964159-5d8e3f6b5a5a?auto=format&fit=crop&w=800&q=80" alt="Team collaborating on a digital board" class="w-full rounded-md shadow-lg">
+      </div>
+    </div>
+  </section>
+
+  <!-- Features Section -->
+  <section class="py-12 bg-background" id="features">
+    <div class="max-w-7xl mx-auto px-4 text-center">
+      <h2 class="text-3xl font-extrabold text-primary mb-8">Core Features</h2>
+      <div class="grid md:grid-cols-3 gap-8">
+        <div class="bg-surface p-6 rounded-md shadow-sm scroll-reveal" data-reveal>
+          <svg class="h-12 w-12 text-primary mx-auto mb-4" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4" /></svg>
+          <h3 class="text-xl font-semibold text-primary mb-2">Kanban Boards</h3>
+          <p class="text-text-secondary">Drag‑and‑drop tasks across columns, set due dates, and visualise progress at a glance.</p>
+        </div>
+        <div class="bg-surface p-6 rounded-md shadow-sm scroll-reveal" data-reveal>
+          <svg class="h-12 w-12 text-primary mx-auto mb-4" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3" /></svg>
+          <h3 class="text-xl font-semibold text-primary mb-2">Real‑time Collaboration</h3>
+          <p class="text-text-secondary">Comment, @mention teammates, and see updates instantly.</p>
+        </div>
+        <div class="bg-surface p-6 rounded-md shadow-sm scroll-reveal" data-reveal>
+          <svg class="h-12 w-12 text-primary mx-auto mb-4" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4" /></svg>
+          <h3 class="text-xl font-semibold text-primary mb-2">Analytics & Reporting</h3>
+          <p class="text-text-secondary">Track velocity, cycle time, and team health with actionable insights.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- How It Works Section -->
+  <section class="py-12" id="how-it-works">
+    <div class="max-w-7xl mx-auto px-4 text-center">
+      <h2 class="text-3xl font-extrabold text-primary mb-8">How It Works</h2>
+      <div class="grid md:grid-cols-3 gap-8">
+        <div class="scroll-reveal" data-reveal>
+          <div class="w-16 h-16 mx-auto rounded-full bg-primary text-white flex items-center justify-center mb-4 text-2xl font-semibold">1</div>
+          <h3 class="text-xl font-semibold text-primary mb-2">Create a Project</h3>
+          <p class="text-text-secondary">Start with a template or build from scratch.</p>
+        </div>
+        <div class="scroll-reveal" data-reveal>
+          <div class="w-16 h-16 mx-auto rounded-full bg-primary text-white flex items-center justify-center mb-4 text-2xl font-semibold">2</div>
+          <h3 class="text-xl font-semibold text-primary mb-2">Add Tasks & Assign</h3>
+          <p class="text-text-secondary">Break work into actionable items and assign owners.</p>
+        </div>
+        <div class="scroll-reveal" data-reveal>
+          <div class="w-16 h-16 mx-auto rounded-full bg-primary text-white flex items-center justify-center mb-4 text-2xl font-semibold">3</div>
+          <h3 class="text-xl font-semibold text-primary mb-2">Track Progress</h3>
+          <p class="text-text-secondary">Move tasks through stages and celebrate wins.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Pricing Section -->
+  <section class="py-12 bg-background" id="pricing">
+    <div class="max-w-7xl mx-auto px-4 text-center">
+      <h2 class="text-3xl font-extrabold text-primary mb-8">Pricing</h2>
+      <div class="grid md:grid-cols-2 gap-8">
+        <div class="bg-surface p-6 rounded-md shadow-sm scroll-reveal" data-reveal>
+          <h3 class="text-xl font-semibold text-primary mb-4">Free</h3>
+          <p class="text-4xl font-extrabold text-primary mb-4">$0 / month</p>
+          <ul class="text-text-secondary mb-6 space-y-2 text-left">
+            <li>Unlimited projects</li>
+            <li>5 members</li>
+            <li>Basic analytics</li>
+          </ul>
+          <a href="#" class="inline-block bg-primary text-white font-semibold py-3 px-6 rounded-md hover:bg-primary/80 transition">Start Free</a>
+        </div>
+        <div class="bg-surface p-6 rounded-md shadow-sm scroll-reveal" data-reveal>
+          <h3 class="text-xl font-semibold text-primary mb-4">Pro</h3>
+          <p class="text-4xl font-extrabold text-primary mb-4">$49 / month</p>
+          <ul class="text-text-secondary mb-6 space-y-2 text-left">
+            <li>Unlimited members</li>
+            <li>Advanced analytics</li>
+            <li>Priority support</li>
+          </ul>
+          <a href="#" class="inline-block bg-primary text-white font-semibold py-3 px-6 rounded-md hover:bg-primary/80 transition">Upgrade</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Call to Action Section -->
+  <section class="py-12" id="cta">
+    <div class="max-w-3xl mx-auto text-center">
+      <h2 class="text-3xl font-extrabold text-primary mb-4">Ready to boost your team's productivity?</h2>
+      <p class="text-text-secondary mb-8">Sign up today and get a 14‑day free trial with no credit card required.</p>
+      <a href="#pricing" class="inline-block bg-primary text-white font-semibold py-4 px-8 rounded-md hover:bg-primary/80 transition">Try for Free</a>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="bg-surface py-8">
+    <div class="max-w-7xl mx-auto px-4 text-center">
+      <p class="text-text-secondary">© 2026 TaskFlow. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <!-- JavaScript -->
+  <script>
+    // Sticky header on scroll
+    const header = document.getElementById('header');
+    window.addEventListener('scroll', () => {
+      if (window.scrollY > 50) {
+        header.classList.add('shadow-md', 'py-2');
+        header.classList.remove('py-4');
+      } else {
+        header.classList.remove('shadow-md', 'py-2');
+        header.classList.add('py-4');
+      }
+    });
+
+    // Mobile menu toggle
+    const mobileBtn = document.getElementById('mobile-menu-btn');
+    const mobileMenu = document.getElementById('mobile-menu');
+    mobileBtn.addEventListener('click', () => {
+      if (mobileMenu.style.display === 'none' || mobileMenu.style.display === '') {
+        mobileMenu.style.display = 'block';
+        mobileMenu.classList.remove('scale-95', 'opacity-0');
+        mobileMenu.classList.add('scale-100', 'opacity-100');
+      } else {
+        mobileMenu.style.display = 'none';
+      }
+    });
+
+    // Scroll reveal animation
+    const observerOptions = {
+      threshold: 0.1
+    };
+    const observer = new IntersectionObserver((entries, obs) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.remove('opacity-0', 'translate-y-4');
+          entry.target.classList.add('opacity-100', 'translate-y-0', 'transition-all', 'duration-700');
+          obs.unobserve(entry.target);
+        }
+      });
+    }, observerOptions);
+
+    document.querySelectorAll('[data-reveal]').forEach(el => {
+      el.classList.add('opacity-0', 'translate-y-4');
+      observer.observe(el);
+    });
+  </script>
+</body>
+</html>
